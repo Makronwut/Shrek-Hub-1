@@ -1,0 +1,64 @@
+local ui = game:GetObjects("rbxassetid://8486034712")[1].Parent = game.CoreGui
+
+local UserInputService = game:GetService("UserInputService")
+ui
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+gui.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = gui.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+gui.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
+
+if game.Players.LocalPlayer.Name == "SupBoy2022" or game.Players.LocalPlayer.Name == "LORDRAY2" or game.Players.LocalPlayer.Name == "googleiss" or game.Players.LocalPlayer.Name ==  "sSKLRr" or game.Players.LocalPlayer.Name == "AuraEMJAY" or game.Players.LocalPlayer.Name == "whidebutguydeadpool" or game.Players.LocalPlayer.Name == "Trump220" or game.Players.LocalPlayer.Name == "lambarini" or game.Players.LocalPlayer.Name == "shrekonfiree" then
+  ui.Key.Text = "Premium coming soon!"
+end
+
+ui.GetKey.MouseButton1Click:Connect(function()
+	setclipboard("https://direct-link.net/345771/key-system")
+	ui.GetKey = "Copied!"
+	wait(2)
+	ui.GetKey = "Click to copy!"
+end)
+
+ui.Checj.MouseButton1Click:Connect(function()
+	if ui.Key.Text == "xcbjMrnGSHXOoNaCOwPNdbNbBzLVgp" then
+		
+		ui:Destroy()
+	else
+		ui.Key.Text = "INCORRECT KEY"
+		wait(2)
+		ui.Key.Text = "Enter Key"
+	end
+
+end)
+
