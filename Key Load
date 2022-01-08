@@ -52,7 +52,7 @@ end)
 
 ui.Check.MouseButton1Click:Connect(function()
 	if ui.Key.Text == "xcbjMrnGSHXOoNaCOwPNdbNbBzLVgp" then
-		
+loadstring(game:HttpGet("https://github.com/markzukember/No/raw/main/No"))()
 		ui:Destroy()
 	else
 		ui.Key.Text = "INCORRECT KEY"
