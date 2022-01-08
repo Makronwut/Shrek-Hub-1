@@ -50,7 +50,7 @@ ui.GetKey.MouseButton1Click:Connect(function()
 	ui.GetKey = "Click to copy!"
 end)
 
-ui.Checj.MouseButton1Click:Connect(function()
+ui.Check.MouseButton1Click:Connect(function()
 	if ui.Key.Text == "xcbjMrnGSHXOoNaCOwPNdbNbBzLVgp" then
 		
 		ui:Destroy()
