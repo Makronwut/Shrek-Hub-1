@@ -1,3 +1,27 @@
+ local OldNameCall
+  OldNameCall = hookmetamethod(game, "__newindex", function(A, B, ...)
+      if not checkcaller()  and (B == "WalkSpeed" or B == "JumpPower") then
+          return
+      end
+      return OldNameCall(A, B, ...)
+  end)
+
+
+  local OldNameCall = nil
+  OldNameCall = hookmetamethod(game, "__namecall", function(self, ...)
+      local Args = {...}
+      local Self = Args[1]
+      if self.Name == "Returner" and Args[1] == "idklolbrah2de"  then
+             return "  ___XP DE KEY"
+      end
+       if self.Name == "RemoteEvent" then
+        if Args[1] == "Reset"  then
+              return nil
+        end
+    end
+      return OldNameCall(self, ...)
+  end)
+
 _, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
 
 
